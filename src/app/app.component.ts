@@ -33,7 +33,6 @@ import { Network, DataSet} from 'vis';
 
 export class AppComponent implements AfterViewInit {
   er : Array<Error_> ;
-  //graphi : Array<Simbolo> ;
   simglobal : Array<Symbol> ;
   textoConsola1: string = "";
   textoConsola2: string = "";
