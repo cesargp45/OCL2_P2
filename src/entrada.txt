@@ -1,0 +1,645 @@
+#include <stdio.h>
+double Heap[16384];
+double Stack[16384];
+double p = 0;
+double h = 0;
+
+main (){
+return 0;
+}
+
+
+
+void native_compare_str_str(){
+  T5 = Stack[(int)p + 1];
+  T6 = Stack[(int)p + 2];
+
+  L0:
+    T7 = Heap[(int)T5];
+    T8 = Heap[(int)T6];
+  if(T7 == T8) goto L1;
+   goto L2;
+  L1: 
+   if(T7 == -1) goto L3;
+   goto L4;
+  L3:
+   Stack[(int)p] = 1;
+   goto L5;
+  L4: 
+   T5 = T5 + 1;
+   T6 = T6 + 1;
+   goto L0;
+  L2:
+   Stack[(int)p] = 0;
+   goto L5;
+  L5:
+  return;
+}
+
+
+void native_pot(){
+ T2 = Stack[(int)p + 1];
+ T3 = Stack[(int)p + 2];
+ T4 = 1;
+ T5 = T2;
+ if(T3 == 0)goto L3;
+ L0:
+  if(T4 < T3)goto L1;
+  goto L2;
+ 
+ L1:
+  T2 = T2 * T5;
+  T4 = T4 + 1;
+  goto L0;
+  
+ L2:
+  Stack[(int)p] = T2;
+  goto L4;
+  
+ L3: 
+  Stack[(int)p] = 1;
+ 
+ L4: 
+  return;    
+}
+
+
+
+void native_concat_int_str(){
+    
+   T3 = Stack[(int)p + 1];
+   T4 = Stack[(int)p + 2]; 
+   T6 = 1;
+   T7 = h;
+   L0:
+    if(T3 < 1) goto L1;
+    goto L2;
+   
+   L2:
+    T3 = T3 / 10;
+    T6 = T6 + 1;
+    goto L0;
+   L1:
+    T3 = T3 * 10;
+    T5 = (int)T3;
+    T3 = T3 - T5;
+    T6 = T6 - 1;
+    if(T6 > 0) goto L3;
+    goto L4;
+    L3:
+    T8 = (int)T5 + 48;
+    Heap[(int)h] = T8;
+    h = h + 1;
+    goto L1;
+    L4:
+    // meter la cadena a concatenar
+    Stack[(int)p] = T7;
+    return;
+}
+
+
+
+T11 = Stack[(int)0];
+L10:
+T10 = Heap[(int)T11];
+T11 = T11 + 1;
+if(T10 == -1)goto L11;
+goto L12;
+L12:
+ printf("%c",(char)T10);
+ goto L10;
+L11:
+
+
+void native_concat_int_str(){
+    
+   T3 = Stack[(int)p + 1];
+   T4 = Stack[(int)p + 2]; 
+   T6 = 1;
+   T7 = h;
+   L0:
+    if(T3 < 1) goto L1;
+    goto L2;
+   
+   L2:
+    T3 = T3 / 10;
+    T6 = T6 + 1;
+    goto L0;
+   L1:
+    T3 = T3 * 10;
+    T5 = (int)T3;
+    T3 = T3 - T5;
+    T6 = T6 - 1;
+    if(T6 > 0) goto L3;
+    goto L4;
+    L3:
+    T8 = (int)T5 + 48;
+    Heap[(int)h] = T8;
+    h = h + 1;
+    goto L1;
+    L4:
+    // meter la cadena a concatenar
+    Stack[(int)p] = T7;
+    return;
+}
+
+
+
+void native_concat_str_int (){
+T3 = Stack[(int)p + 2];
+T4 = Stack[(int)p + 1];
+T5 = 1;
+T6 = h;
+L0:
+T7 = Heap[(int)T4];
+T4 = T4 + 1;
+if(T7 == -1) goto L1;
+goto L2;
+L2:
+Heap[(int)h] = T7;
+h = h + 1;
+goto L0;
+L1:
+goto L3;
+L3:
+if(T3 < 1) goto L4;
+goto L5;
+L5:
+T3 = T3 / 10;
+T5 = T5 + 1;
+goto L3;
+L4:
+T3 = T3 * 10;
+T8 = (int)T3;
+T3 = T3 - T8;
+T5 = T5 - 1;
+if(T5 > 0) goto L6;
+goto L7;
+L6:
+T9 = (int)T8 + 48;
+Heap[(int)h] = T9;
+h = h + 1;
+goto L4;
+L7:
+Heap[(int)h] = -1;
+h = h + 1;
+Stack[(int)p] = (int)T6;
+return;
+}
+
+
+void native_concat_bol_str (){
+T3 = Stack[(int)p + 1];//bool
+T4 = Stack[(int)p + 2];//string
+T5 = 1;
+T6 = h;
+
+L0:
+if(T3 == 1) goto L1;
+goto L2;
+
+L1:
+ Heap[(int)h] = 116;
+ h = h + 1;
+ Heap[(int)h] = 114;
+ h = h + 1;
+ Heap[(int)h] = 117;
+ h = h + 1;
+ Heap[(int)h] = 101;
+ h = h + 1;
+ goto L3;
+ 
+L2:
+ Heap[(int)h] = 102;
+ h = h + 1;
+ Heap[(int)h] = 97;
+ h = h + 1;
+ Heap[(int)h] = 108;
+ h = h + 1;
+ Heap[(int)h] = 115;
+ h = h + 1;
+ Heap[(int)h] = 101;
+ h = h + 1;
+
+L3:
+ T7 = Heap[(int)T4];
+ T4 = T4 + 1;
+ if(T7 == -1) goto L4;
+ goto L5;
+ 
+L5:
+ Heap[(int)h] = T7;
+ h = h + 1;
+ goto L3;
+ 
+L4:
+ Heap[(int)h] = -1;
+ h = h + 1;
+ Stack[(int)p] = (int)T6;
+ return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void native_concat_int_str (){
+T3 = Stack[(int)p + 1];
+T4 = Stack[(int)p + 2];
+T5 = 1;
+T6 = 1;
+T7 = h;
+T9 = T3;
+T12 = (int)T3;
+
+L15:
+ T9 = T9 - T12;
+ T12 = T9 * 10;
+ T9 = T9 * 10 ;
+ //printf("%f\n",(float)T9);
+ if((int)T9 == 0) goto L0;
+ T6 = T6 + 1;// contador
+ goto L15;
+ 
+L0:
+if(T3 < 1) goto L1;
+goto L2;
+L2:
+T3 = T3 / 10;
+T5 = T5 + 1;
+goto L0;
+
+L1:
+//printf("%f \n",(float)T3);
+T3 = T3 * 10;
+T7 = (int)T3;
+T3 = T3 - (int)T7;
+T5 = T5 - 1;
+//printf("%f \n",(float)T3);
+if(T5 > 0) goto L3;
+goto L10;
+
+L3:
+T8 = (int)T7 + 48;
+Heap[(int)h] = T8;
+h = h + 1;
+goto L1;
+
+L10:
+T3 = T3 + (int)T7;
+T3 = T3 / 10;
+Heap[(int)h] = 46;
+h = h + 1;
+printf("%f \n",(float)T3);
+goto L11;
+
+L11:
+ T3 = T3 * 10;
+ T7 = (int)T3;
+ T3 = T3 - (int)T7;
+ T13 = T13 - 1;
+ if(T13 > 0) goto L13;
+ goto L4;
+ 
+L13:
+T8 = (int)T7 + 48;
+Heap[(int)h] = T8;
+h = h + 1;
+goto L11; 
+
+L4:
+T9 = Heap[(int)T4];
+T4 = T4 + 1;
+if(T9 == -1) goto L5;
+goto L6;
+L6:
+Heap[(int)h] = T9;
+h = h + 1;
+goto L4;
+L5:
+Heap[(int)h] = -1;
+h = h + 1;
+Stack[(int)p] = (int)T6;*/
+return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+double Heap[16384];
+double Stack[16384];
+double p = 0;
+double h = 0;
+double T0,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15,T20,T21,T17;
+main (){
+T0 = h  ;
+Heap[(int)h] = 104;
+h = h + 1;
+Heap[(int)h] = 111;
+h = h + 1;
+Heap[(int)h] = 108;
+h = h + 1;
+Heap[(int)h] = 97;
+h = h + 1;
+Heap[(int)h] = -1;
+h = h + 1;
+T2 = p + 1;
+Stack[(int)T2] = 188.296314;
+T2 = T2 + 1;
+Stack[(int)T2] = T0;
+p = p + 0;
+native_concat_int_str();
+T1 = Stack[(int)p];
+p = p - 0;
+Stack[(int)0] = T1;
+
+T20 = Stack[(int)0];
+L10:
+T21 = Heap[(int)T20];
+T20 = T20 + 1;
+if(T21 == -1)goto L11;
+goto L12;
+L12:
+ printf("%c",(char)T21);
+ goto L10;
+L11:
+return 0;
+}
+
+
+
+
+
+
+void native_concat_int_str (){
+T3 = Stack[(int)p + 1];
+T4 = Stack[(int)p + 2];
+T5 = 1;
+T6 = 1;
+T13 = h;
+T8 = T3;
+T9 = (int)T3;
+
+L0:
+ T8 = T8 - (int)(T8 + 1e-5);
+ T8 = T8 * 10 ;
+ T6 = T6 + 1;
+ if((int)T8 == 0) goto L10;
+ goto L0;
+ 
+L10:
+ T8 = T8 * 10;
+ if((int)T8 == 0) goto L1;
+ T6 = T6 + 1;
+ goto L0;
+ 
+
+L1:
+if(T3 < 1) goto L2;
+T3 = T3 / 10;
+T5 = T5 + 1;
+goto L1;
+
+L2:
+T3 = T3 * 10;
+T7 = (int)T3;
+T3 = T3 - T7;
+T5 = T5 - 1;
+if(T5 > 0) goto L3;
+goto L4;
+
+L3:
+T10 = (int)T7 + 48;
+Heap[(int)h] = T10;
+h = h + 1;
+goto L2;
+
+L4:
+T3 = T3 + T7;
+T3 = T3 / 10;
+Heap[(int)h] = 46;
+h = h + 1;
+goto L5;
+
+L5:
+ T3 = T3 * 10;
+ T7 =(int)(T3 + 1e-5);
+ T3 = T3 - T7;
+ T6 = T6 - 1;
+ if(T6 > 1) goto L6;
+ goto L7;
+
+L6:
+ T11 = (int)T7 + 48;
+ Heap[(int)h] = T11;
+ h = h + 1;
+ goto L5;
+ 
+L7:
+ T12 = Heap[(int)T4];
+ T4 = T4 + 1;
+ if(T12 == -1) goto L8;
+ goto L9;
+ 
+L9:
+ Heap[(int)h] = T12;
+ h = h + 1;
+ goto L7;
+ 
+L8:
+ Heap[(int)h] = -1;
+ h = h + 1;
+ Stack[(int)p] = (int)T13;
+
+return;
+}
+
+
+
+
+void native_concat_str_dob (){
+T3 = Stack[(int)p + 1];
+T4 = Stack[(int)p + 2];
+T5 = 1;
+T6 = 1;
+T7 = h;
+T8 = T3;
+
+
+L8:
+T12 = Heap[(int)T4];
+T4 = T4 + 1;
+if(T12 == -1) goto L0;//cambio L9 - l0
+goto L10;
+L10:
+Heap[(int)h] = T12;
+h = h + 1;
+goto L8;
+
+
+L0:
+T8 = T8 - (int)(T8 + 1e-5);
+T8 = T8 * 10;
+T6 = T6 + 1;
+if((int)T8 == 0) goto L1;
+goto L0;
+L1:
+T8 = T8 * 10;
+if((int)T8 == 0) goto L2;
+T6 = T6 + 1;
+goto L0;
+L2:
+if(T3 < 1) goto L3;
+T3 = T3 / 10;
+T5 = T5 + 1;
+goto L2;
+L3:
+T3 = T3 * 10;
+T9 = (int)T3;
+T3 = T3 - T9;
+T5 = T5 - 1;
+if(T5 > 0) goto L4;
+goto L5;
+L4:
+T10 = (int)T9 + 48;
+Heap[(int)h] = T10;
+h = h + 1;
+goto L3;
+L5:
+T3 = T3 + T9;
+T3 = T3 / 10;
+Heap[(int)h] = 46;
+h = h + 1;
+goto L6;
+L6:
+T3 = T3 * 10;
+T9 = (int)(T3 + 1e-5);
+T3 = T3 - T9;
+T6 = T6 - 1;
+if(T6 > 1) goto L7;
+goto L9;//cambio l8-l9
+L7:
+T11 = (int)T9 + 48;
+Heap[(int)h] = T11;
+h = h + 1;
+goto L6;
+
+L9:
+Heap[(int)h] = -1;
+h = h + 1;
+Stack[(int)p] = (int)T7;
+return;
+}
+
+
+
+
+
+
+
+
+//#include <stdio.h>
+//#include <math.h>
+double Heap[16384];
+double Stack[16394];
+double p;
+double h;
+double N0, N1, N2, N3, N4, N5, N6, N7;
+double T0, T1, T2, T3, T4, T5;
+
+void main() {
+    /***** BEGIN Array declaration *****/
+    /***** INICIO ARREGLO *****/
+    T0 = h;
+    Heap[(int)h] = 2;
+    T1 = T0 + 1;
+    h = h + 3;
+    /***** INICIO ARREGLO *****/
+    T2 = h;
+    Heap[(int)h] = 1;
+    T3 = T2 + 1;
+    h = h + 2;
+    Heap[(int)T3] = 10;
+    /***** FIN ARREGLO *****/
+    Heap[(int)T1] =
+ /***** FIN ARREGLO *****/
+    Heap[(int)T1] = T2;
+    T1 = T1 + 1;
+    /***** INICIO ARREGLO *****/
+    T4 = h;
+    Heap[(int)h] = 1;
+    T5 = T4 + 1;
+    h = h + 2;
+    Heap[(int)T5] = 20;
+    /***** FIN ARREGLO *****/
+    Heap[(int)T1] = T4;
+    /***** FIN ARREGLO *****/
+    Stack[(int)0] = T0;
+    /***** END Array declaration *****/
+    return;
+}
+
+
+
+    T7 = T6 + 0;
+    T7 = T7 + 1;
+    T8 = Heap[(int)T7];
+    T7 = T6 + 10;
+    T7 = T7 + 1;
+    T8 = Heap[(int)T7];
+//------------------------
+    T6 = Stack[(int)0];
+    T7 = T6 + 10;
+    T7 = T7 + 1;
+    T8 = Heap[(int)T7];
+
+
+
+    void main() {
+    /***** BEGIN Array declaration *****/
+    T0 = h;
+    Heap[(int)h] = 2;
+    T1 = T0 + 1;
+    h = h + 3;
+    T2 = h;
+    Heap[(int)h] = 1;
+    T3 = T2 + 1;
+    h = h + 2;
+    Heap[(int)T3] = 1;
+    Heap[(int)T1] = T2;
+    T1 = T1 + 1;
+    T4 = h;
+    Heap[(int)h] = 1;
+    T5 = T4 + 1;
+    h = h + 2;
+    Heap[(int)T5] = 2;
+    Heap[(int)T1] = T4;
+    Stack[(int)0] = T0;
+    /***** END Array declaration *****/
+    return;
+}

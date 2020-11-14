@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Abrir
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"> Archivo #1</a>
+            <a class="dropdown-item" href="#"><input type="file" id="file-input" /></a>
+            <a class="dropdown-item" href="#" onclick="AbrirArchivo1()"> Abrir</a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ver
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" onclick="GenerarAST()">AST</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Guardar Como
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" onclick="GuardarArchivo1()">Archivo #1</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" onclick="GuardarArchivo2()">Archivo #2</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Descargar
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" onclick="GuardarArbol1()">AST</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" onclick="GuardarErrores()">Errores</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+    <div class="form-group shadow-textarea">
+    <label for="lblArchivo1">EJECUTAR</label>
+    <ngs-code-editor id="consola1" name="consola1" [theme]="theme" [options]="options"
+      (valueChanged)="onCodeChanged1($event)">
+    </ngs-code-editor>
+  </div>
+
+
+  <div class="form-group shadow-textarea2">
+    <label for="lblArchivo2">TRADUCIR</label>
+    <ngs-code-editor id="consola2" name="consola2" [theme]="theme" [options]="options"
+      (valueChanged)="onCodeChanged2($event)">
+    </ngs-code-editor>
+  </div>
+
+
+
+  <div class="form-group botones5">
+    <button type="button" class="btn btn-secondary" >Traducir2</button>
+  </div>
+
+  <div class="form-group botones4">
+    <button type="button" class="btn btn-secondary"  (click)="generarDot()">codDot</button>
+  </div>
+
+
+  <div class="form-group botones">
+    <button type="button" class="btn btn-secondary" (click)="graficar()">ANALIZAR</button>
+  </div>
+
+
+  <div class="form-group botones3">
+    <button type="button" class="btn btn-secondary" (click)="traducir()">EJECUTAR</button>
+  </div>
+
+  <div class="form-group purple-border">
+    <label for="exampleFormControlTextarea4">SALIDA EJECUCION</label>
+    <textarea id="C" name="C" class="form-control" rows="3" required autofocus></textarea>
+  </div>
+
+  <div class="form-group purple-border">
+    <label for="exampleFormControlTextarea4">SALIDA TRADUCCION</label>
+    <textarea id="T" name="T" class="form-control" rows="3" required autofocus></textarea>
+  </div>
+
+  <div class="form-group lblerr">
+    <label for="lblError">Tabla Errores</label>
+  </div>
+
+
+  <div class="row4">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Linea</th>
+            <th>Columna</th>
+            <th>Tipo</th>
+            <th>Descripcion</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dat of er">
+            <td>{{dat.linea}}</td>
+            <td>{{dat.columna}}</td>
+            <td>{{dat.tipo}}</td>
+            <td>{{dat.mensaje}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="form-group graf">
+    <label for="lblgraf">Grafica_ts</label>
+  </div>
+
+  <div class="row3">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo Variable</th>
+            <th>Ambito</th>
+            <th>Valor</th>
+            <th>Tipo Dato</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dat of graphi">
+            <td>{{dat.id}}</td>
+            <td>{{dat.tipo}}</td>
+            <td>{{dat.ambito}}</td>
+            <td>{{dat.valor}}</td>
+            <td>{{dat.tipoDato}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="form-group glob">
+    <label for="lblglob">Global</label>
+  </div>
+
+  <div class="row2">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo Variable</th>
+            <th>Global</th>
+            <th>Posicion</th>
+            <th>constate</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dat of simglobal">
+            <td>{{dat.identifier}}</td>
+            <td>{{dat.type.type}}</td>
+            <td>{{dat.isGlobal}}</td>
+            <td>{{dat.position}}</td>
+            <td>{{dat.isConst}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="form-group ast">
+    <label for="lblast">AST</label>
+  </div>
+  
+  <p></p>
+  <div #network></div>
+</body>
+
+</html>

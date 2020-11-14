@@ -1,0 +1,205 @@
+body{
+  background-color: #575757;
+  height: 6200px;
+}
+
+
+.shadow-textarea ngs-code-editor {
+    height: 500px;
+    position: relative;
+    left: 100px;
+    top: 20px;
+}
+
+
+.shadow-textarea {
+
+    width: 1000px;
+    height: 500px;
+}
+
+
+.shadow-textarea2 ngs-code-editor {
+    height: 500px;
+    position: relative;
+    left: 100px;
+    top: 80px;
+}
+
+
+.shadow-textarea2 {
+
+    width: 1000px;
+    height: 500px;
+}
+
+.shadow-textarea label {
+    border: 1px solid rgb(0, 0, 0);
+    position: relative;
+    top: 20px;
+    left: 100PX;
+    color: rgb(0, 0, 0);
+  
+  }
+
+  .shadow-textarea2 label {
+    border: 1px solid rgb(0, 0, 0);
+    position: relative;
+    top: 80px;
+    left: 100PX;
+    color: rgb(0, 0, 0);
+  
+  }
+
+
+  
+
+  .botones{
+    position: relative;
+    top:  -900px;
+    left: 1125PX;
+    
+  }
+
+  
+
+  .botones3{
+    position: relative;
+    top: -910px;
+    left: 1125PX;
+  }
+
+
+  .botones4{
+    position: relative;
+    top: -290px;
+    left: 1125PX;
+  }
+
+  .botones5{
+    position: relative;
+    top: -280px;
+    left: 1125PX;
+  }
+
+
+  .purple-border textarea {
+    border: 1px solid #1F35AD;
+    background-color: rgb(28, 28, 29);
+    color: blanchedalmond;
+      width: 1000px;
+      height: 500px;
+      position: relative;
+      left: 100px;
+      top: 93px;
+  
+    
+  }
+  .purple-border .form-control:focus {
+      border: 1px solid #1F35AD;
+      box-shadow: 0 0 0 0.5rem rgba(0, 38, 255, 0.25);
+  
+  }
+
+  .purple-border label {
+    border: 1px solid rgb(0, 0, 0);
+    position: relative;
+    left: 100px;
+    top: 90px;
+    color: rgb(0, 0, 0);
+
+}
+
+.lblerr label {//
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  top: 150px;
+  left: 585PX;
+  color: rgb(0, 0, 0);
+
+}
+
+.row4 {
+  width: 800px;
+  height: 800px;
+  color: rgb(0, 0, 0);
+  background-color: #777fad;
+  top: 50%;
+  left: 30%;
+  position:absolute; top:3000px;left:50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 70px;
+  margin-bottom: 100px;  
+  overflow: scroll;
+}
+
+
+.graf label {//
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  top: 1030px;
+  left: 585PX;
+  color: rgb(0, 0, 0);
+
+}
+
+.row3 {
+  width: 800px;
+  height: 800px;
+  color: rgb(0, 0, 0);
+  background-color: #93cc85;
+  top: 50%;
+  left: 30%;
+  position:absolute; top:3900px;left:50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 70px;
+  margin-bottom: 100px;  
+  overflow: scroll;
+}
+
+.glob label {//
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  top: 1880px;
+  left: 585PX;
+  color: rgb(0, 0, 0);
+
+}
+
+.row2 {
+  width: 800px;
+  height: 800px;
+  color: rgb(0, 0, 0);
+  background-color: #85c0a3;
+  top: 50%;
+  left: 30%;
+  position:absolute; top:4800px;left:50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 70px;
+  margin-bottom: 100px;  
+  overflow: scroll;
+}
+
+.ast label {//
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  top: 2900px;
+  left: 585PX;
+  color: rgb(0, 0, 0);
+
+}
+
+p {
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  top: 2900px;
+  left: 0PX;
+  color: rgb(0, 0, 0);
+   height:700px;
+   overflow: scroll;
+}
+
+

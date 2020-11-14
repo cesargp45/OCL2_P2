@@ -1,0 +1,73 @@
+.shadow-textarea textarea.form-control::placeholder {
+  font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+  padding-left: 0.8rem;
+}
+
+.shadow-textarea textarea {
+	border: 1px solid #1F35AD;
+	background-color: rgb(28, 28, 29);
+	color: blanchedalmond;
+    width: 1000px;
+    height: 350px;
+    position: relative;
+    left: 100px;
+    top: 0px;
+}
+
+
+.shadow-textarea label {
+  border: 1px solid rgb(255, 255, 255);
+  position: relative;
+  top: 0px;
+  left: 100PX;
+  color: rgb(255, 255, 255);
+
+}
+
+
+.justify-content-md-center{
+  color: rgb(255, 255, 255);
+  position: relative;
+  left: 50px;
+  top: 100px;
+}
+
+.titulo {
+  position: relative;
+  left: 350PX;
+}
+.botones{
+  position: relative;
+  top: -290px;
+  left: 1125PX;
+}
+
+
+.botones2{
+  position: relative;
+  top: -290px;
+  left: 1125PX;
+}
+
+.shadow-textarea2 textarea {
+	border: 1px solid #1F35AD;
+	background-color: rgb(28, 28, 29);
+	color: blanchedalmond;
+    width: 1000px;
+    height: 350px;
+    position: relative;
+    left: 100px;
+    top: 0px;
+}
+
+
+.shadow-textarea2 label {
+  border: 1px solid rgb(255, 255, 255);
+  position: relative;
+  top: 0px;
+  left: 100PX;
+  color: rgb(255, 255, 255);
+
+}
